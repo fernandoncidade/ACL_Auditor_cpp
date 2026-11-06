@@ -1,0 +1,94 @@
+Projeto: ACL AUDITOR
+Versão: 2026.11.6.0
+Autores: Fernando Nillsson Cidade
+
+Descrição: Plataforma Local de Análise Visual de Permissões, Explicação de Acesso Efetivo e Conformidade NTFS para Windows
+"Saiba exatamente por que e como qualquer usuário acessa seus arquivos — visualmente, determinísticamente e com evidência auditável."
+
+O ACL Auditor é uma aplicação de alta performance para Windows desenvolvida em C++20 moderno e Qt 6.11.1, projetada para fornecer clareza cirúrgica, auditoria determinística e governança sobre o sistema de arquivos NTFS, compartilhamentos de rede e serviços do sistema operacional. Em vez de operar como um visualizador estático ou um utilitário de diagnóstico restrito, o ACL Auditor integra três camadas analíticas em uma experiência fluida, moderna e segura:
+
+1. Mapeamento Visual e Explicação Causal de Herança: Resolução instantânea da cadeia causal completa: Usuário -> Grupos Locais -> Grupos de Domínio Active Directory -> Objeto de Origem da Herança -> Permissão Concedida ou Negada. O sistema calcula direitos de acesso efetivo de forma matemática, diferenciando permissões explícitas de herdadas conforme a especificação do NT DACL.
+2. Detecção Automatizada de Riscos e Superfícies de Ataque: Scanner recursivo de vulnerabilidades locais, incluindo diretórios graváveis por usuários comuns (World-Writable via Everyone, Users, Authenticated Users), vetores de Binary Planting e DLL Hijacking (.exe, .dll, .bat, .cmd, .ps1 em caminhos desprotegidos), privilégios excessivos (WRITE_DAC, WRITE_OWNER) e contas órfãs / SIDs não resolvidos.
+3. Linhas de Base Criptográficas e Planos Seguros de Remediação: Captura de snapshots de segurança com integridade SHA-256 via Windows CNG (BCrypt), comparação temporal de diferenças (Diff Engine) em SQLite local e sintetizador de scripts auditáveis em PowerShell (.ps1) e Batch/icacls (.bat) com salvamento prévio e rollback garantido.
+
+Compromisso Absoluto com a Privacidade (Local-First):
+Seus dados nunca saem do seu computador. O ACL Auditor opera 100% offline, sem dependência de nuvem, sem coleta de telemetria, sem criação de contas e sem modelos de inteligência artificial ou linguagem remotos (LLM/RAG). Toda a inteligência analítica decorre de algoritmos de teoria dos grafos, máscaras de bits e segurança determinística executados diretamente na sua máquina.
+
+
+Os 6 Modos de Utilização do ACL Auditor
+
+* Modo Explicação Visual de Acesso Efetivo: Responda visualmente à pergunta: "Por que este usuário consegue ler, modificar ou executar este arquivo?". O motor calcula a árvore de herança e a precedência de regras de forma intuitiva.
+* Modo Scanner de Vulnerabilidades e Riscos NTFS: Varredura recursiva de diretórios e unidades para detectar brechas críticas de segurança, permissões excessivas e superfícies propensas a escalada de privilégios.
+* Modo Auditoria de Serviços (SCM) e Compartilhamentos SMB: Auditoria de serviços locais em busca de caminhos sem aspas (Unquoted Service Paths) e correlação cruzada entre a DACL de compartilhamentos de rede e a DACL NTFS física.
+* Modo Comparação Temporal de Snapshots (Diff Engine): Salve linhas de base criptográficas e compare momentos distintos para identificar alterações indevidas ou desvios de permissão (Permission Drift).
+* Modo Planos de Remediação com Rollback: Gere scripts auditáveis de correção com salvamento prévio de permissões (/save) e planos de reversão automática.
+* Modo Consultoria e Relatórios Executivos: Exporte relatórios formais em PDF A4 com resumo executivo para diretorias, HTML interativo responsivo com scorecards de risco, planilhas CSV e dados estruturados em JSON.
+
+
+Principais Casos de Uso e Públicos-Alvo
+
+- Administradores de Redes e Sistemas (SysAdmins): Auditar servidores de arquivos, diagnosticar heranças corrompidas e validar permissões NTFS em grandes árvores de diretórios corporativos.
+- Equipes de Segurança da Informação (SecOps / Blue Team): Eliminar superfícies de ataque para movimentação lateral, sequestro de execução de DLLs e escalada local de privilégios.
+- Auditores de Governança, Risco e Conformidade (LGPD, ISO 27001, SOX, CIS): Gerar evidências técnicas documentadas e relatórios de auditoria irrefutáveis com hashes SHA-256.
+- Consultorias de TI e Segurança: Realizar assessments de permissões em clientes e apresentar diagnósticos claros, visuais e embasados para tomada de decisão gerencial.
+- Desenvolvedores e Engenheiros de Software: Garantir que diretórios de instalação, serviços e binários de aplicações estejam configurados com o princípio do menor privilégio.
+
+
+Como o ACL Auditor Funciona
+
+1. Enumeração Recursiva de Descritores: As APIs nativas do Windows NT (GetNamedSecurityInfoW e GetInheritanceSourceW) leem os descritores de segurança dos caminhos selecionados.
+2. Resolução Causal de Contas e Grupos: SIDs locais e de domínio são resolvidos e desdobrados em grupos aninhados via Authz e NetApi32.
+3. Cálculo Determinístico de Acesso Efetivo: Aplicação estrita das regras de precedência da arquitetura de segurança do Windows NT (negação explícita > concessão explícita > negação herdada > concessão herdada).
+4. Avaliação Heurística de Riscos: Regras estáticas verificam permissões de escrita perigosas em executáveis e caminhos de serviços locais.
+5. Persistência Local e Integridade SHA-256: Os dados são gravados assincronamente em banco de dados SQLite local com hash criptográfico CNG.
+6. Apresentação Moderna com Qt 6 e DWM: Interface gráfica fluida com busca instantânea, suporte ao Windows 11 Mica, modo escuro/claro e navegação em abas.
+
+
+Ferramentas de Análise e Recursos Disponíveis
+
+- Explicação Gráfica Causal de Herança: Visualização passo a passo da concessão ou negação de cada direito.
+- Tabela Detalhada de ACEs: Inspeção completa de máscaras de bits de permissão e sinalizadores de herança (CI, OI, IO, NP).
+- Auditoria de Serviços Locais: Detecção de Unquoted Paths e binários de serviços vulneráveis a substituição.
+- Correlação de Compartilhamentos SMB: Identificação de conflitos entre segurança de compartilhamento e segurança física NTFS.
+- Exportação Completa de Evidências: Emissão de relatórios em PDF A4, HTML interativo, CSV estruturado, JSON e banco SQLite.
+- Scripts de Remediação Prontos: Geração de scripts PowerShell (.ps1) e icacls (.bat) com rotinas de backup e reversão.
+- Bilinguismo Nativo Dinâmico: Suporte completo e comutação instantânea entre Português (Brasil) e English (United States).
+
+---
+
+MANUAL DE UTILIZAÇÃO RÁPIDO:
+
+1. Execute o aplicativo pelo atalho ou executável (ACLAuditor.exe).
+2. Na barra superior ou no menu Arquivo, clique em "Selecionar Diretório" ou "Auditar Compartilhamento".
+3. Selecione o usuário ou grupo cujo acesso deseja auditar ou selecione o modo de varredura de riscos.
+4. Clique em "Iniciar Auditoria" para processar a árvore de permissões e gerar a árvore causal de herança.
+5. Inspecione os riscos apontados na aba "Vulnerabilidades" e os direitos calculados na aba "Acesso Efetivo".
+6. Clique em "Exportar Relatório" para gerar o documento em PDF/HTML ou em "Plano de Remediação" para obter os scripts de correção.
+
+
+MANUAL DE UTILIZAÇÃO DETALHADO:
+
+Requisitos do Sistema:
+- Sistema Operacional: Microsoft Windows 10 (64-bit) versão 1809 ou superior, ou Windows 11 (64-bit).
+- Permissão de leitura de segurança no sistema de arquivos NTFS auditado.
+- Para auditoria de serviços (SCM) ou leitura de certos descritores de sistema, a execução com privilégios elevados ("Executar como Administrador") é recomendada.
+- Permissão de gravação no perfil do usuário em %LOCALAPPDATA%\ACLAuditor.
+
+Configuração e Operação:
+1. Diretório e Alvo de Auditoria:
+   - Caminhos locais, unidades de rede mapeadas ou compartilhamentos UNC (\\servidor\pasta).
+2. Explicador de Acesso Efetivo:
+   - Apresenta a regra determinante e a máscara de bits correspondente, demonstrando se a permissão provém de um grupo direto, aninhado ou por herança de pastas superiores.
+3. Scanner de Riscos e Vulnerabilidades:
+   - Sinaliza com cores intuitivas (Crítico, Alto, Médio e Baixo) as anomalias identificadas, exibindo o caminho afetado e a recomendação de correção.
+4. Snapshots e Histórico de Linhas de Base:
+   - Permite capturar e rotular snapshots do estado atual das permissões, gerando um hash SHA-256 de integridade e permitindo comparações posteriores.
+5. Planos de Remediação e Scripts com Rollback:
+   - Os scripts gerados incluem a sintaxe precisa de comandos `icacls` ou `Set-Acl` com salvamento prévio `/save <arquivo.acl>` para que o administrador possa reverter qualquer alteração com um único clique.
+6. Idioma e Interface:
+   - O idioma pode ser alternado dinamicamente em Opções → Idioma, com recarregamento imediato de todos os textos, tabelas e relatórios.
+
+Suporte e Contato:
+Fernando Nillsson Cidade
+E-mail: linceu_lighthouse@outlook.com
+Repositório: https://github.com/fernandoncidade

@@ -1,0 +1,58 @@
+END-USER LICENSE AGREEMENT (EULA) — ACL Auditor
+Version 2026.11.6.0, November 6, 2026
+
+Copyright (c) 2025-2026 Fernando Nillsson Cidade. All rights reserved.
+
+IMPORTANT LICENSING CLARIFICATION (DUAL LICENSING NOTICE):
+The terms of this End-User License Agreement (EULA) apply EXCLUSIVELY to the official pre-compiled, packaged, and digitally signed binary distributed by the author via the Microsoft Store.
+The full source code of this project is open and publicly available on the GitHub repository under the GNU Affero General Public License v3 (AGPLv3). Developers, contributors, and the community have complete freedom to inspect, audit, compile, modify, fork, and redistribute their own builds from source under the terms of the GNU AGPLv3, without this EULA imposing restrictions on the open-source code or community builds (as detailed in docs/licensing.md).
+
+By installing, downloading, copying, accessing, or otherwise using the official Microsoft Store release of the ACL Auditor Software, you agree to be bound by the terms and conditions of this End-User License Agreement ("License" or "EULA"). If you do not agree to the terms of this License, do not install, copy, or use the official binary.
+
+TERMS AND CONDITIONS FOR USE, INSTALLATION, AND EXECUTION:
+
+1. DEFINITIONS
+   "Licensor" refers to Fernando Nillsson Cidade, the sole and exclusive owner of the copyright and intellectual property rights in and to the Software.
+   "Software" refers to the ACL Auditor computer program, in binary executable code compiled natively for Windows (x64), including its graphical interface, support files, data schemas, icons, and all associated electronic or printed documentation.
+   "Licensee", "User", or "you" refers to the individual or legal entity that acquired the license for the Software via the Microsoft Store or an authorized commercial distribution channel.
+
+2. LICENSE GRANT
+   Subject to the terms and conditions of this License and the policies of the Microsoft Store platform, the Licensor grants the Licensee a personal, non-exclusive, non-transferable, and revocable license to install and run the Software on devices compatible with the Microsoft Windows operating system, solely for the purposes of security inspection, auditing, visual NTFS permission mapping, effective access explanation, and compliance assessment.
+
+3. RESTRICTIONS ON USE
+   The Licensee may not, under any circumstances:
+   a) Copy, redistribute, rent, lease, lend, sublicense, or commercialize the Software to third parties without prior written consent from the Licensor;
+   b) Reverse engineer, decompile, disassemble, derive source code from, or bypass security mechanisms of the Software, except and only to the extent that applicable law expressly permits, notwithstanding this contractual limitation;
+   c) Remove, obscure, or alter any copyright notices, trademarks, or intellectual property identifiers contained within the Software or its accompanying documentation;
+   d) Use the Software for unlawful, offensive purposes, to violate third-party rights, or in violation of applicable laws and regulations.
+
+4. INTELLECTUAL PROPERTY
+   The Software is licensed, not sold. The Software is protected by copyright laws (including Brazilian Laws No. 9,609/1998 and No. 9,610/1998), international intellectual property treaties, and applicable legislation in the country of use. All titles, copyrights, trademarks, and trade secrets in and to the Software remain the exclusive and inalienable property of the Licensor.
+
+5. READ-ONLY ARCHITECTURE AND REMEDIATION PLANS
+   a) The Software operates strictly in READ-ONLY mode by default architectural design. The application does not automatically modify, overwrite, or revoke security descriptors or NTFS permissions on the audited storage.
+   b) The remediation generation feature produces plain-text scripts (PowerShell and icacls/Batch). These scripts include preliminary backup instructions (/save) and rollback procedures. The technical inspection, validation, and discretionary execution of these scripts remain the sole responsibility of the authorized system administrator. The Licensor accepts no liability for outcomes resulting from script execution performed by the user.
+
+6. DATA PRIVACY AND SOVEREIGNTY (LOCAL-FIRST)
+   The Software operates 100% autonomously and offline. The Software does not transmit, publish, synchronize, or disclose any audited user data, directory paths, file names, user accounts, SIDs, or corporate structures over external networks, the internet, or cloud providers. All required data persistence occurs strictly within the user's local storage (%LOCALAPPDATA%\ACLAuditor).
+
+7. UPDATES AND TECHNICAL SUPPORT
+   The Licensor may, at its sole discretion, make updates, security patches, or enhancements for the Software available via the Microsoft Store. Technical support is provided in accordance with the acquired commercial model and the designated official contact channels.
+
+8. TERM AND TERMINATION
+   This License remains in effect until terminated. Any violation of its terms by the Licensee will result in the immediate and automatic termination of the license, without prejudice to damages. Upon termination, the Licensee must immediately discontinue all use of the Software and remove it from their computers.
+
+9. LIMITED WARRANTY ("AS IS")
+   To the maximum extent permitted by applicable law, the Software is provided "AS IS", "WITH ALL FAULTS", and "AS AVAILABLE". The Licensor disclaims all further warranties, express or implied, including, but not limited to, warranties of merchantability, fitness for a particular purpose, uninterrupted operation, or error-free performance. You assume all risks arising out of the use and performance of the application.
+
+10. LIMITATION AND EXCLUSION OF REMEDIES AND DAMAGES
+    To the extent not prohibited by applicable mandatory law, if you have any legal basis for recovering damages from the Licensor, you may recover only direct damages actually proven, up to the amount paid for the application on the Microsoft Store or R$ 5.00 (five Brazilian Reais) / USD 5.00 (five United States Dollars), whichever is greater. You will not seek, and you irrevocably waive any right to claim, damages for lost profits, indirect financial loss, special, incidental, punitive, or consequential damages resulting from the use of or inability to use the Software.
+
+11. EXPORT RESTRICTIONS AND TECHNOLOGY LAWS
+    The Software may be subject to United States and international technology export controls and trade regulations. You agree to comply with all domestic and international export laws, regulations, and embargoes applicable to the technology used or supported by the Software.
+
+12. APPLICABLE LAW AND GENERAL PROVISIONS
+    a) If you acquired the Software in the United States or Canada, the laws of the state or province where you reside govern the interpretation of these terms.
+    b) If you acquired the Software in Brazil, the laws of the Federative Republic of Brazil govern these terms.
+    c) If you acquired the Software in any other country, the laws of that country apply.
+    d) This License, together with the Privacy Policy and Commercial Licensing Agreement, constitutes the entire agreement between the parties regarding the subject matter hereof.

@@ -1,0 +1,94 @@
+Project: ACL AUDITOR
+Version: 2026.11.6.0
+Authors: Fernando Nillsson Cidade
+
+Description: Local Visual Permission Analysis, Effective Access Explainer & NTFS Compliance Platform for Windows
+"Know exactly why and how any user accesses your files — visually, deterministically, and with auditable evidence."
+
+ACL Auditor is a high-performance Windows application developed in modern C++20 and Qt 6.11.1, engineered to deliver surgical clarity, deterministic auditing, and governance across NTFS filesystems, network shares, and operating system services. Rather than functioning as a static viewer or a narrow diagnostic utility, ACL Auditor integrates three analytical layers into a fluid, modern, and secure experience:
+
+1. Visual Mapping and Causal Inheritance Explanation: Instant resolution of the complete causal chain: User -> Local Groups -> Active Directory Domain Groups -> Inheritance Origin Object -> Granted or Denied Permission. The engine computes effective access rights mathematically, distinguishing explicit from inherited permissions strictly according to NT DACL specifications.
+2. Automated Risk and Attack Surface Detection: Recursive scanner for local vulnerabilities, including world-writable directories (accessible via Everyone, Users, Authenticated Users), Binary Planting and DLL Hijacking attack surfaces (.exe, .dll, .bat, .cmd, .ps1 in unprivileged writable paths), excessive privileges (WRITE_DAC, WRITE_OWNER), and orphaned accounts / unresolved SIDs.
+3. Cryptographic Baselines and Safe Remediation Plans: Security snapshot capture with SHA-256 evidence integrity via Windows CNG (BCrypt), temporal difference comparison (Diff Engine) stored in local SQLite, and automated script generation in PowerShell (.ps1) and Batch/icacls (.bat) featuring preliminary backup and guaranteed rollback.
+
+Absolute Commitment to Privacy (Local-First):
+Your data never leaves your computer. ACL Auditor operates 100% offline, without cloud dependencies, without telemetry collection, without mandatory user accounts, and without remote artificial intelligence or language models (LLM/RAG). All analytical intelligence stems from graph theory algorithms, bitwise security masks, and deterministic computations executed directly on your processor.
+
+
+The 6 Operating Modes of ACL Auditor
+
+* Visual Effective Access Explainer Mode: Visually answer the fundamental question: "Why can this user read, modify, or execute this file?". The engine evaluates the inheritance tree and permission precedence rules intuitively.
+* NTFS Vulnerability & Risk Scanner Mode: Recursive directory and drive scan to uncover critical security loopholes, excessive privileges, and privilege escalation surfaces.
+* Windows Service (SCM) & SMB Share Audit Mode: Audit local Windows services for unquoted service paths and cross-correlate SMB share DACLs against underlying physical NTFS DACLs.
+* Temporal Snapshot Comparison Mode (Diff Engine): Save cryptographic baselines and compare distinct points in time to detect unauthorized modifications and permission drift.
+* Safe Remediation Plans with Rollback Mode: Generate auditable correction scripts with preliminary permission backup (/save) and automated rollback routines.
+* Consultancy & Executive Reporting Mode: Export formal A4 PDF reports with executive summaries for leadership, interactive responsive HTML with risk scorecards, CSV spreadsheets, and raw structured JSON.
+
+
+Key Use Cases and Target Audiences
+
+- Network and System Administrators (SysAdmins): Audit corporate file servers, resolve broken inheritance chains, and validate NTFS permissions across extensive directory trees.
+- Information Security Teams (SecOps / Blue Team): Eliminate attack surfaces for lateral movement, DLL execution hijacking, and local privilege escalation.
+- Governance, Risk, and Compliance Auditors (GDPR, LGPD, ISO 27001, SOX, CIS): Produce documented technical evidence and irrefutable audit reports stamped with SHA-256 hashes.
+- IT and Cybersecurity Consultancies: Perform comprehensive permission assessments for clients and present clear, visual, and actionable diagnostic findings.
+- Software Developers and Engineers: Ensure that application installation folders, background services, and executable binaries adhere strictly to the principle of least privilege.
+
+
+How ACL Auditor Works
+
+1. Recursive Security Descriptor Enumeration: Native Windows NT APIs (GetNamedSecurityInfoW and GetInheritanceSourceW) query security descriptors across designated paths.
+2. Causal Account and Group Resolution: Local and Active Directory domain SIDs are resolved and expanded into nested group hierarchies via Authz and NetApi32.
+3. Deterministic Effective Access Evaluation: Strict application of Windows NT security precedence rules (explicit deny > explicit grant > inherited deny > inherited grant).
+4. Heuristic Risk Assessment: Static rules evaluate dangerous write permissions on executables and local service binaries.
+5. Local Persistence with SHA-256 Integrity: Data is persisted asynchronously into a local SQLite database with CNG cryptographic hashing.
+6. Modern Presentation with Qt 6 and DWM: Fluid user interface with instant search, native Windows 11 Mica integration, dark/light themes, and tabbed navigation.
+
+
+Analysis Tools and Available Capabilities
+
+- Causal Graphical Inheritance Explanation: Step-by-step visual demonstration of how every individual right is granted or denied.
+- Comprehensive ACE Table: Full inspection of permission bitmasks and inheritance propagation flags (CI, OI, IO, NP).
+- Local Service Auditing: Detection of unquoted paths and service binaries susceptible to unauthorized modification.
+- SMB Share Correlation: Identification of discrepancies between share-level security and underlying NTFS filesystem security.
+- Complete Evidence Export: Export reports to A4 PDF, interactive HTML, structured CSV, JSON, and SQLite database.
+- Ready-to-Run Remediation Scripts: Generation of PowerShell (.ps1) and icacls (.bat) scripts with built-in backup and rollback.
+- Dynamic Native Bilingual Support: Complete support and instant runtime switching between English (United States) and Português (Brasil).
+
+---
+
+QUICK USE MANUAL:
+
+1. Launch the application from the shortcut or executable (ACLAuditor.exe).
+2. On the top toolbar or File menu, click "Select Directory" or "Audit Share".
+3. Select the user or group whose access rights you wish to inspect, or activate Vulnerability Scan mode.
+4. Click "Start Audit" to evaluate the permission tree and generate the causal inheritance path.
+5. Inspect identified risks in the "Vulnerabilities" tab and computed rights in the "Effective Access" tab.
+6. Click "Export Report" to generate documentation in PDF/HTML, or "Remediation Plan" to obtain correction scripts.
+
+
+DETAILED USER MANUAL:
+
+System Requirements:
+- Operating System: Microsoft Windows 10 (64-bit) version 1809 or later, or Windows 11 (64-bit).
+- Security read permissions on the audited NTFS filesystem.
+- For Windows service auditing (SCM) or reading system security descriptors, running with elevated privileges ("Run as Administrator") is recommended.
+- Write permission within the user profile directory at %LOCALAPPDATA%\ACLAuditor.
+
+Configuration and Operation:
+1. Target Directory and Scope:
+   - Local directory paths, mapped network drives, or UNC share paths (\\server\share).
+2. Effective Access Explainer:
+   - Displays the decisive rule and corresponding bitmask, demonstrating whether a permission stems from direct group membership, nested groups, or inheritance from parent folders.
+3. Risk and Vulnerability Scanner:
+   - Highlights identified anomalies with intuitive color coding (Critical, High, Medium, Low), displaying affected paths and remediation guidance.
+4. Snapshots and Baseline History:
+   - Allows capturing and tagging snapshots of current permissions, computing a SHA-256 evidence hash for subsequent diff comparisons.
+5. Remediation Plans and Rollback Scripts:
+   - Generated scripts include precise `icacls` or `Set-Acl` syntax with preliminary backup commands (`/save <backup.acl>`), enabling one-click restoration if needed.
+6. Language and Interface:
+   - The interface language can be switched dynamically under Options → Language, instantly updating all text, tables, and reports.
+
+Support and Contact:
+Fernando Nillsson Cidade
+Email: linceu_lighthouse@outlook.com
+Repository: https://github.com/fernandoncidade

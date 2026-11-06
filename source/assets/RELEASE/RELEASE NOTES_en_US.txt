@@ -1,0 +1,113 @@
+RELEASE NOTES: Version 2026.11.6.0 — ACL AUDITOR
+Release Date: November 6, 2026
+
+General Update Summary:
+This release establishes ACL Auditor as a fully transparent, open project, strengthening legal certainty, user clarity, and documentation integrity across the entire application interface. The update enhances the in-app information dialog with direct official links, simplifies guidance regarding support and guarantees, clarifies the harmonious coexistence between the open edition and the official packaged release on the Windows Store, and refines operational guidelines on user privacy, regulatory mapping, and audit assistance.
+
+Key New Features and Improvements in This Release:
+
+1. Complete Transparency and Open Project Model
+- The application now features clear, universal open-source guidelines, ensuring that any user or organization can freely inspect, audit, study, and compile the tool independently.
+- Clear distinction established between community builds and the official digitally signed release available on the Windows Store, giving users complete confidence in their usage rights.
+
+2. Enhanced About Dialog and Official Links
+- The in-app "About" window has been updated to connect users directly to the official project repository and up-to-date documentation, replacing incorrect third-party references.
+- Copyright notices, usage terms, and privacy explanations have been streamlined to provide direct, clean, and unambiguous reading.
+
+3. Streamlined User Support and Contact Channels
+- Simplified user support instructions, introducing a dedicated direct email communication channel for questions, technical feedback, and corporate deployment inquiries.
+- Transparent guidelines on inquiry response workflows, fostering straightforward communication without unnecessary contractual overhead.
+
+4. Clearer Compliance and Regulatory Guidance
+- Guidance documentation now includes clear clarifications regarding the application's role as a diagnostic security audit aid, helping administrators follow best practices for access reviews.
+- Clear statements indicating that while the application provides powerful evidence and verification capabilities, it complements rather than replaces internal organizational governance.
+
+5. Unified System Versioning and Experience
+- Complete synchronization across all application components — including the graphical interface and the headless terminal tool — to release version 2026.11.6.0.
+- Smoother navigation through built-in documentation and improved readability of all explanatory texts bundled with the software.
+
+Author:
+Fernando Nillsson Cidade
+
+===============================================================================
+
+RELEASE NOTES: Version 2026.10.18.0 — ACL AUDITOR
+Release Date: October 18, 2026
+
+General Update Summary:
+This update introduces new capabilities focused on automation and everyday convenience, improving the experience for system administrators and technical teams who need rapid security verifications. The primary new feature is a dedicated command-line tool that allows full security audits directly from the terminal without opening graphical windows. Additionally, the built-in user manuals have been refreshed, risk detection for Windows services and network shares is clearer, and new guidance documents have been integrated into the project.
+
+Key New Features and Improvements in This Release:
+
+1. Terminal Command-Line Auditing and Scanning
+- You can now perform full folder and file security checks directly from PowerShell or Command Prompt without launching the graphical user interface.
+- Quickly inspect folder permissions, verify the access level of a specific user, audit system services, and evaluate network shares with straightforward commands.
+- For Microsoft Store users, the tool can be invoked globally from any folder in Windows Terminal simply by typing its command name.
+- Results can be viewed directly on screen in plain text or saved as structured data files for integration with other enterprise audit platforms.
+
+2. Updated Built-in User Manual
+- The in-app user guide accessible via the F1 keyboard shortcut has been expanded with step-by-step instructions for both graphical operations and the new terminal commands.
+- The manual's internal search feature has been optimized, making it easy to quickly find explanations of security concepts, keyboard shortcuts, and troubleshooting tips.
+
+3. Clearer Security Alerts and Findings
+- Enhanced visual warnings for network shared folders, making it immediately apparent when important documents are accessible to everyone on the network.
+- More intuitive descriptions for insecurely configured Windows services, guiding administrators on how to protect systems against unauthorized alterations.
+
+4. Expanded Operations Guides and Licensing Clarity
+- New reference guides have been added explaining system operations, recommended security practices, and compliance guidelines.
+- Complete transparency for developers and community members, explicitly granting freedom to adapt and customize documentation and materials for their own platforms and environments.
+
+5. Overall Stability and Performance Improvements
+- Faster and smoother navigation when inspecting large directory trees containing thousands of files and intricate permission structures.
+- Polished report exports with clean layouts and standardized language ready for printing or direct presentation to leadership teams.
+
+Author:
+Fernando Nillsson Cidade
+
+===============================================================================
+
+RELEASE NOTES: Version 2026.10.17.0 — ACL AUDITOR
+Release Date: October 17, 2026
+
+General Summary of the Official Release:
+This release marks the official launch of ACL Auditor — Visual NTFS Permissions and Compliance Analyzer for Windows. Built natively in modern C++20 and Qt 6.11.1, the application is engineered to empower system administrators, infrastructure consultancies, and cybersecurity teams to audit, visually explain, document, and remediate access control vulnerabilities within the NTFS filesystem.
+
+Key Highlights and Features:
+
+1. Visual Causal Effective Access Explainer
+- Direct visual answer to the question: "Why can this user read, modify, or execute this file?".
+- Hierarchical tree mapping identity resolution: User -> Direct Groups -> Nested / Universal Groups (Everyone, Authenticated Users) -> Inheritance Root Origin Folder -> Granted/Denied Rule.
+- Verdict scorecard displaying Read, Write, and Execute badges, clearly highlighting whether access originates from protected inheritance or local explicit rules.
+
+2. Automated NTFS Vulnerability & Risk Scanner
+- Instant discovery of directories writable by regular unprivileged users (World-Writable via Everyone, Users, Authenticated Users).
+- Automated detection of potential Binary Planting / DLL Hijacking vectors (.exe, .dll, .bat, .cmd, .ps1, .vbs residing in user-writable paths).
+- Detection of excessive administrative privileges (WRITE_DAC and WRITE_OWNER) assigned to non-admin accounts.
+- Identification of orphaned SIDs and unresolved legacy accounts from deleted domains or users.
+- Weighted risk scoring (0 to 100) with intuitive severity categorization (Critical, High, Medium, Low).
+
+3. Windows Services & SMB Shares Auditor
+- Dedicated module to inspect the Windows Service Control Manager (SCM), uncovering Unquoted Service Paths containing spaces and verifying if SYSTEM service executables possess insecure write permissions.
+- Local SMB network share auditing via NetShareEnum (level 502), correlating share-level DACL permissions with the underlying physical NTFS DACL to pinpoint misconfigurations.
+
+4. Temporal Security Snapshot Comparison (Local SQLite)
+- Capture comprehensive permission snapshots stamped with SHA-256 cryptographic hashes generated via Windows CNG (BCrypt).
+- 100% offline persistence stored in a local SQLite database in %LOCALAPPDATA%/ACLAuditor.
+- High-efficiency temporal diff engine to compare snapshots across dates (e.g., Monday baseline vs. current state), highlighting new files, deleted files, modified permissions, and newly added administrative rights.
+
+5. Safe Read-Only Mode & Remediation Plans with Rollback
+- Non-destructive philosophy: the application operates in read-only mode by default without executing unintended modifications on the disk.
+- Integrated remediation planner generating ready-to-run PowerShell (.ps1) and Batch / icacls (.bat) scripts, complete with automatic preliminary backups (/save) and guaranteed rollback routines.
+
+6. Executive Reporting for Consultancies
+- Professional A4 PDF export with executive summary, metric tables, and risk scores designed for client presentations.
+- Standalone interactive HTML report with responsive CSS styling and dynamic filters.
+- Raw and structured data export in CSV and JSON formats.
+
+7. Windows Explorer Integration & Localization
+- Optional shell context menu integration: "Audit NTFS Permissions with ACL Auditor" in HKCU.
+- Dynamic runtime translation between English (United States - en_US) and Português (Brasil - pt_BR).
+- Native Windows 11 DWM title bar styling (Mica effect and Dark Mode).
+
+Author:
+Fernando Nillsson Cidade

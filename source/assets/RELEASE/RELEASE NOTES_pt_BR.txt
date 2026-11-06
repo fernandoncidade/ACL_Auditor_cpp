@@ -1,0 +1,113 @@
+NOTAS DE LANÇAMENTO: Versão 2026.11.6.0 — ACL AUDITOR
+Data de Lançamento: 6 de novembro de 2026
+
+Resumo Geral da Atualização:
+Esta versão consolida a transição do ACL Auditor para um modelo totalmente aberto e transparente, fortalecendo a segurança jurídica, a clareza para os usuários e a confiabilidade de todas as informações disponibilizadas na interface do aplicativo. A atualização aprimora a janela informativa do programa com links oficiais diretos, simplifica as orientações sobre suporte e garantias, esclarece a convivência harmônica entre a edição de código aberto e o aplicativo oficial disponível na loja do Windows, além de refinar a comunicação sobre privacidade, conformidade e auxílio a auditorias.
+
+Principais Novidades e Melhorias Desta Versão:
+
+1. Transparência Completa e Modelo de Uso Aberto
+- O projeto passa a contar com diretrizes claras e universais de uso livre para a comunidade, garantindo que qualquer pessoa ou organização possa estudar, auditar e compilar a aplicação de forma totalmente autônoma.
+- Foi definida de maneira transparente a distinção entre a versão de livre distribuição e o pacote oficial assinado distribuído pela loja do Windows, assegurando total tranquilidade aos usuários sobre seus direitos de uso.
+
+2. Aprimoramento da Janela Informativa e Links Oficiais
+- A janela "Sobre" do aplicativo foi atualizada para direcionar o usuário diretamente aos canais oficiais do projeto e à documentação atualizada, eliminando referências a ferramentas ou endereços externos incorretos.
+- Textos informativos de direitos autorais, termos de uso e políticas de privacidade foram revisados para proporcionar leitura agradável, direta e sem ambiguidades.
+
+3. Esclarecimento de Suporte e Canais de Atendimento
+- Simplificação das orientações de suporte ao usuário, estabelecendo canais diretos de contato por correio eletrônico para dúvidas, solicitações ou suporte a implantações corporativas.
+- Orientações transparentes sobre os prazos de resposta e processo de atendimento, garantindo uma relação clara e sem burocracias desnecessárias com quem utiliza a ferramenta.
+
+4. Diretrizes de Conformidade e Isenção Regulatória
+- A documentação de apoio foi enriquecida com notas claras sobre o papel do aplicativo como ferramenta de apoio técnico ao diagnóstico de segurança, orientando os administradores sobre as melhores práticas para auditorias corporativas.
+- Esclarecimento objetivo de que o software serve como forte aliado na verificação de permissões, sem substituir os processos formais de governança e controles exigidos por órgãos certificadores.
+
+5. Sincronização Geral e Estabilidade do Sistema
+- Todas as ferramentas do sistema — tanto a interface visual quanto a ferramenta de linha de comando — foram integralmente sincronizadas na versão 2026.11.6.0.
+- Navegação mais fluida nos manuais internos e maior clareza visual nos textos explicativos que acompanham o aplicativo.
+
+Autor:
+Fernando Nillsson Cidade
+
+===============================================================================
+
+NOTAS DE LANÇAMENTO: Versão 2026.10.18.0 — ACL AUDITOR
+Data de Lançamento: 18 de outubro de 2026
+
+Resumo Geral da Atualização:
+Esta atualização traz novos recursos voltados para a automação e facilidade no dia a dia dos usuários, aprimorando a experiência tanto para administradores de sistemas quanto para equipes que precisam de verificações rápidas. A principal novidade é a inclusão de uma ferramenta que permite realizar auditorias completas diretamente pelo terminal de comandos, sem a necessidade de abrir janelas visuais. Além disso, os manuais internos foram atualizados, a detecção de riscos em serviços e pastas de rede ficou mais clara e novos documentos de orientação foram adicionados ao projeto.
+
+Principais Novidades e Melhorias Desta Versão:
+
+1. Auditoria e Varredura pelo Terminal de Comandos
+- Agora você pode realizar todas as verificações de pastas e arquivos diretamente pelo Prompt de Comando ou PowerShell, sem abrir a interface gráfica.
+- Permite verificar permissões de pastas, calcular o acesso de um usuário específico, auditar serviços do computador e checar compartilhamentos de rede com comandos rápidos.
+- Para usuários da Microsoft Store, a ferramenta pode ser executada de qualquer lugar no Windows Terminal digitando apenas o seu comando, graças ao atalho integrado ao sistema operacional.
+- Os resultados podem ser visualizados na tela em texto simples ou gravados em formato de dados estruturados para integração com outros sistemas de auditoria.
+
+2. Manual de Instruções Interno Atualizado
+- O manual de instruções acessível pela tecla F1 dentro do aplicativo foi aprimorado para incluir todas as orientações sobre como utilizar os recursos visuais e os novos comandos de terminal.
+- A ferramenta de busca do manual agora facilita encontrar rapidamente explicações sobre termos de segurança, atalhos de teclado e orientações para resolução de problemas comuns.
+
+3. Alertas e Detecções de Segurança Mais Claros
+- Melhorias nos avisos visuais de pastas compartilhadas na rede, identificando com maior clareza quando arquivos importantes estão acessíveis para todos na empresa.
+- Avisos mais fáceis de compreender sobre serviços do Windows configurados de forma insegura, orientando sobre como proteger o computador contra alterações indevidas.
+
+4. Novos Guias de Operação e Transparência de Licenciamento
+- Foram incluídos novos documentos de apoio que explicam o funcionamento do sistema, as boas práticas de segurança recomendadas e as diretrizes de governança.
+- Total transparência para a comunidade e desenvolvedores, autorizando expressamente a adaptação e personalização de documentos e materiais de apoio para seus próprios projetos e plataformas.
+
+5. Melhorias Gerais de Estabilidade e Desempenho
+- Maior velocidade e estabilidade ao analisar pastas que contêm grande quantidade de arquivos e regras de acesso complexas.
+- Relatórios executivos gerados com layout mais limpo e textos padronizados, prontos para impressão ou envio direto.
+
+Autor:
+Fernando Nillsson Cidade
+
+===============================================================================
+
+NOTAS DE LANÇAMENTO: Versão 2026.10.17.0 — ACL AUDITOR
+Data de Lançamento: 17 de outubro de 2026
+
+Resumo Geral da Versão Oficial:
+Esta versão marca o lançamento oficial do ACL Auditor — Analisador Visual de Permissões e Conformidade NTFS para Windows. Desenvolvido inteiramente em C++20 moderno e Qt 6.11.1, o aplicativo foi projetado para capacitar administradores de sistemas, consultorias de infraestrutura e equipes de cibersegurança a auditar, explicar visualmente, documentar e sanar vulnerabilidades de controle de acesso no sistema de arquivos NTFS.
+
+Destaques e Principais Funcionalidades:
+
+1. Visualizador da Cadeia Causal de Acesso Efetivo
+- Resposta visual direta à questão: "Por que este usuário consegue ler, alterar ou executar este arquivo?".
+- Mapeamento hierárquico em árvore de resolução de identidade: Usuário -> Grupos Diretos -> Grupos Aninhados / Universais (Everyone, Authenticated Users) -> Pasta Raiz de Origem da Herança -> Regra Concedida/Negada.
+- Cartão de veredito com badges de leitura, gravação e execução, detalhando se o acesso decorre de herança protegida ou regra explícita local.
+
+2. Scanner Automatizado de Vulnerabilidades e Riscos NTFS
+- Detecção instantânea de diretórios graváveis por usuários comuns (World-Writable via Everyone, Users, Authenticated Users).
+- Identificação de potenciais vetores de Binary Planting / DLL Hijacking (.exe, .dll, .bat, .cmd, .ps1, .vbs em pastas onde usuários comuns possuem direito de modificação).
+- Detecção de privilégios excessivos (WRITE_DAC e WRITE_OWNER) atribuídos a contas não administrativas.
+- Identificação de SIDs órfãos e contas desconhecidas residuais de domínios ou usuários excluídos.
+- Cálculo de pontuação de risco ponderada (0 a 100) com classificação por severidade (Crítico, Alto, Médio, Baixo).
+
+3. Auditoria de Serviços do Windows e Compartilhamentos SMB
+- Módulo dedicado para varredura do Gerenciador de Controle de Serviços (SCM), identificando Unquoted Service Paths com espaços e verificando se os executáveis de serviços executados como SYSTEM possuem permissão de gravação indevida.
+- Auditoria de compartilhamentos de rede SMB via NetShareEnum (nível 502), correlacionando as permissões da DACL do compartilhamento com a DACL NTFS física para identificar falhas de autorização.
+
+4. Comparação Temporal de Snapshots de Segurança (SQLite Local)
+- Captura de snapshots completos de permissões com carimbo temporal e hash forense SHA-256 gerado via Windows CNG (BCrypt).
+- Armazenamento 100% offline em banco de dados SQLite local em %LOCALAPPDATA%/ACLAuditor.
+- Motor de cálculo de diferenças (Diff Temporal) para comparar snapshots entre datas (ex: baseline de segunda-feira vs. estado atual), identificando arquivos novos, excluídos, permissões modificadas e novas concessões administrativas.
+
+5. Modo Somente Leitura e Planos de Remediação com Rollback
+- Filosofia não destrutiva: o aplicativo opera em modo somente leitura por padrão, sem realizar modificações precipitadas no sistema de arquivos.
+- Gerador integrado de planos de correção com exportação de scripts prontos para PowerShell (.ps1) e Batch / icacls (.bat), contendo salvamento automático de backup (/save) e comandos completos de rollback.
+
+6. Relatórios Executivos Multi-Formato (Modo Consultoria)
+- Exportação em PDF A4 profissional com resumo executivo, tabela de métricas e classificação de risco para apresentação a clientes.
+- Geração de relatório HTML interativo autocontido com CSS responsivo e filtros visuais.
+- Exportação de dados brutos e estruturados em CSV e JSON.
+
+7. Integração com o Windows Explorer e Internacionalização
+- Opção para registrar o menu de contexto: "Auditar Permissões NTFS com ACL Auditor" em HKCU.
+- Sistema de tradução dinâmica em tempo de execução entre Português (Brasil - pt_BR) e Inglês (Estados Unidos - en_US).
+- Integração nativa com a barra de título do Windows 11 DWM (Mica e Dark Mode).
+
+Autor:
+Fernando Nillsson Cidade

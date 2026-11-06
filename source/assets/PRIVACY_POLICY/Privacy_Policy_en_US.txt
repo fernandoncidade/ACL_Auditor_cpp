@@ -1,0 +1,75 @@
+ACL Auditor Privacy Policy
+Last updated: November 6, 2026
+Version: 2026.11.6.0
+
+Your privacy and the security of your corporate data are fundamental pillars of this project. This Privacy Policy clearly explains what information ACL Auditor ("Software") processes and, most importantly, how this information remains under your exclusive and unrestricted control.
+
+By using ACL Auditor, you agree to the transparent privacy practices described in this document.
+
+1. Fundamental Principle: Local-First Architecture and Absolute Privacy
+
+ACL Auditor was conceived from its very first line of code under the principles of Local Privacy and Security by Design. All analyses, permission scans, inheritance mappings, and effective access calculations operate 100% offline and are executed exclusively within the volatile memory and CPU of your local computer. No information is collected, uploaded, or synchronized with remote servers, cloud services, or third parties.
+
+2. Information Processed by the Software
+
+To perform its auditing and security functions, the Software accesses and inspects the following metadata categories:
+
+ - Filesystem Metadata and NTFS Permissions: The Software inspects security descriptors for the files and directories that you choose to audit. This includes system paths, file and folder names, attributes, timestamps (creation, modification, last access), Discretionary Access Control Lists (DACL), System Access Control Lists (SACL), Access Control Entries (ACE), and Security Identifiers (SIDs). The Software DOES NOT inspect, index, or read the internal confidential contents of your audited documents or files.
+ - User Account and Group Information: To elucidate who has access to given resources, the Software resolves local and Active Directory domain SIDs into account and group names, and recursively maps nested group hierarchies using native Windows NT security subsystem APIs.
+ - Windows Service (SCM) Configurations and SMB Shares: The Software enumerates permissions on local Windows services and active network shares on the audited machine to detect unquoted paths, insecure binary permissions, and discrepancies between share-level and NTFS filesystem permissions.
+ - Basic Operating System Information: Collected strictly to ensure accurate graphical rendering and theme integration (DWM Mica, Dark Mode, screen resolution, and selected language).
+
+3. Purpose of Processing and Legal Grounds (GDPR / LGPD Compliance)
+
+The information processed by ACL Auditor is utilized exclusively to:
+
+ - Deliver the core feature of visual mapping and causal explanation of NTFS permission inheritance.
+ - Identify local security vulnerabilities (world-writable folders, DLL hijacking attack surfaces, unquoted service paths, and orphaned SIDs).
+ - Generate temporal baseline diff comparisons between security snapshots to detect unauthorized changes or privilege escalation over time.
+ - Export technical and executive reports in formats deliberately requested by the user (PDF, HTML, CSV, JSON) and auditable remediation scripts (PowerShell and icacls).
+
+Legal Grounds: Processing takes place under the user's legitimate interest in safeguarding their IT infrastructure and systems (GDPR Article 6(1)(f) / Brazilian LGPD Article 7, IX) and in executing the software license agreement (GDPR Article 6(1)(b) / LGPD Article 7, V).
+
+4. Data Storage, Cryptographic Integrity, and Security
+
+ - Local Storage: All persistent data maintained by the Software (such as baseline security snapshots, user preferences, and audit history) are stored strictly in a local SQLite database within the user's profile:
+   %LOCALAPPDATA%\ACLAuditor
+ - Cryptographic Integrity: ACL Auditor leverages the native Windows Cryptography API: Next Generation (CNG - BCrypt) to generate SHA-256 evidence integrity hashes for snapshots and reports. These cryptographic hashes are produced and retained exclusively offline.
+ - Operational Security: Because the application incorporates no network listening sockets or outgoing telemetry modules, the security of audited data relies entirely upon the physical and logical security measures established on your computer and local network.
+ - Third-Party Data Sharing: The Software DOES NOT collect, DOES NOT share, DOES NOT monetize, and DOES NOT transmit any data to the developer, Microsoft, or third parties. Any external sharing (such as emailing an exported audit report to a client) is an action executed solely and deliberately by you.
+
+5. Your Rights and Unrestricted Control
+
+You maintain complete sovereignty over your data. At any time, you may:
+
+ - Select precisely which storage volumes, folders, or services to audit;
+ - Clear the audit history or delete captured security snapshots directly from within the application interface;
+ - Manually locate and delete the local data folder (%LOCALAPPDATA%\ACLAuditor);
+ - Export reports in standard open formats of your choosing;
+ - Uninstall the Software at any time using the Windows Installed Apps settings, removing all installed binary components.
+
+6. Zero Telemetry and Zero Analytics
+
+ACL Auditor operates on a strict Zero Telemetry policy. The Software does not include analytics trackers, does not monitor user habits or session lengths, does not display advertisements, and does not automatically transmit crash reports over the internet. Any debug logs generated by the application remain strictly local in the user's data folder for personal diagnostic purposes.
+
+7. Read-Only Mode by Default
+
+ACL Auditor functions by default as a non-destructive analytical utility. The Software never silently or automatically alters filesystem permissions or system files. All remediation recommendations are generated as human-readable plain-text scripts for preliminary inspection and deliberate execution by the system administrator.
+
+8. Children's Privacy
+
+ACL Auditor is a specialized IT administration and governance tool intended for IT professionals and corporate organizations. The application is not directed at children under the age of 13 and does not knowingly collect or process information from minors.
+
+9. Compliance with Microsoft Store Policies
+
+This Privacy Policy fully complies with the requirements set forth in the Microsoft Store App Developer Agreement (ADA) and Microsoft Store Policies (Section 10.5 — Personal Information & Privacy).
+
+10. Policy Updates and Contact Information
+
+This Privacy Policy may be updated periodically to reflect new software capabilities. Any significant updates will be evidenced by the revision date at the top of this document and made visible in the "About" dialog of the application.
+
+If you have questions, feedback, or inquiries regarding this Privacy Policy or data protection practices, please contact the developer:
+
+Fernando Nillsson Cidade
+Email: linceu_lighthouse@outlook.com
+Website / Repository: https://github.com/fernandoncidade

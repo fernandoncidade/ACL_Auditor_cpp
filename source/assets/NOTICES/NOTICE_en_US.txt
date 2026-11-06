@@ -1,0 +1,87 @@
+Third-Party Software Dependencies and License Notices — ACL Auditor
+Version 2026.11.6.0, November 6, 2026
+
+This notice applies to the native C++20 and Qt 6 edition of the ACL Auditor project.
+It documents all third-party libraries, components, and frameworks utilized by the software, their respective licenses, and the rigorous fulfillment of all relevant legal obligations for distribution, including on the Microsoft Store.
+
+Dependencies Identified in the Software Codebase:
+
+1. Qt 6 Framework (The Qt Company)
+Modules utilized by the project:
+- Qt6::Core
+- Qt6::Gui
+- Qt6::Widgets
+- Qt6::Sql
+- Qt6::PrintSupport
+
+Purpose in the project:
+- Application core, dynamic internationalization, responsive widget GUI, local database persistence, and the report printing/PDF export subsystem.
+
+Licensing Framework:
+- The Qt framework is provided by The Qt Company under commercial licensing and, for open-source distributions, under the terms of the GNU Lesser General Public License (LGPL) version 3.
+- This project is expressly built and configured to operate with Qt libraries dynamically linked as separate and replaceable binaries (.dll) in the standard Windows distribution scenario.
+
+Fulfilled Obligations for LGPL v3 Distribution:
+- Preservation of Qt copyright notices and official license texts;
+- Dynamic linking, permitting any user or developer to replace the redistributed Qt binaries with compatible versions;
+- Provision of necessary information for relinking/dynamic replacement and clear references to official channels for accessing the framework source code.
+
+Official Qt References:
+- Qt Licensing: https://www.qt.io/licensing
+- The Qt Company LGPL Obligations: https://www.qt.io/licensing/open-source-lgpl-obligations
+- Official Qt Source Code: https://code.qt.io/cgit/qt/qtbase.git/
+
+Specific Legal Notes for Each Qt Module Used:
+- `Qt6::Core`: governed under GNU LGPL v3. The corresponding text is bundled in `source/assets/LICENSES/GNU LESSER GENERAL PUBLIC LICENSE Version 3.txt`.
+- `Qt6::Gui`: governed under GNU LGPL v3. The corresponding text is bundled in `source/assets/LICENSES/GNU LESSER GENERAL PUBLIC LICENSE Version 3.txt`.
+- `Qt6::Widgets`: governed under GNU LGPL v3. The corresponding text is bundled in `source/assets/LICENSES/GNU LESSER GENERAL PUBLIC LICENSE Version 3.txt`.
+- `Qt6::Sql`: governed under GNU LGPL v3. The corresponding text is bundled in `source/assets/LICENSES/GNU LESSER GENERAL PUBLIC LICENSE Version 3.txt`.
+- `Qt6::PrintSupport`: governed under GNU LGPL v3. The corresponding text is bundled in `source/assets/LICENSES/GNU LESSER GENERAL PUBLIC LICENSE Version 3.txt`.
+- Official GNU LGPL v3 text reference: https://www.gnu.org/licenses/lgpl-3.0.html
+
+
+2. SQLite Database Engine / QSQLite Driver
+Usage in the project:
+- Structured local persistence for security baseline snapshots, temporal diff logs, and change history in `%LOCALAPPDATA%\ACLAuditor`, managed via `QSqlDatabase` and the `QSQLITE` driver.
+
+Licensing Framework:
+- SQLite is expressly dedicated to the Public Domain by its original authors;
+- All code contributors have signed affidavits dedicating their contributions to the public domain, maintained by Hwaci. Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original SQLite code;
+- When the QSQLite driver/plugin is redistributed as part of a Qt installation, the Qt wrapper layer follows the Qt distribution license (LGPL v3), while the SQLite core remains in the public domain.
+
+Official SQLite References:
+- SQLite Copyright Statement: https://www.sqlite.org/copyright.html
+- Statement text bundled at: `source/assets/LICENSES/SQLite Is Public Domain.txt`.
+
+
+3. Native Windows APIs and Microsoft Windows SDK
+Usage in the project:
+- Inspection and traversal of NTFS security descriptors (DACLs, SACLs, ACEs, SIDs);
+- Resolution of local accounts and Active Directory domain groups;
+- Windows Service Control Manager (SCM) auditing and detection of unquoted service paths;
+- Enumeration of local SMB network shares;
+- Cryptographic integrity hashing for audit evidence and snapshots;
+- Desktop theme integration (Windows 11 DWM Mica and Dark Mode synchronization).
+
+Linked Components and Libraries:
+- `advapi32.lib` (GetNamedSecurityInfoW, SetNamedSecurityInfoW, GetInheritanceSourceW, etc.);
+- `authz.lib` (AuthzInitializeResourceManager, AuthzInitializeContextFromSid, AuthzAccessCheck);
+- `netapi32.lib` (NetShareEnum level 502, NetApiBufferFree);
+- `dwmapi.lib` (DwmSetWindowAttribute for Dark Mode and modern window framing);
+- `bcrypt.lib` (Microsoft Cryptography API: Next Generation - CNG, for SHA-256 evidence hashing);
+- `psapi.lib`, `shlwapi.lib`, `user32.lib`, `shell32.lib`.
+
+Licensing Note:
+- These components are integral parts of the Microsoft Windows operating system and Microsoft Windows SDK;
+- They are invoked via standard operating system platform APIs and are not redistributed by this project as separate open-source libraries.
+
+
+4. Build, Compilation, and Maintenance Tools
+- Compilation and verification utilize Microsoft Visual C++ (MSVC 2022) / MinGW-w64, CMake, Ninja, and Qt translation utilities (`lrelease`);
+- These tools are part of the development and build pipeline and do not constitute runtime dependencies embedded in the final application binary.
+
+
+Final Note Regarding `source/assets/LICENSES`:
+- The license texts bundled in `source/assets/LICENSES/` serve the purpose of legal transparency and third-party dependency attribution;
+- The open-source codebase of ACL Auditor is governed by the GNU AGPLv3 (GNU Affero General Public License v3), whereas commercial EULA terms apply exclusively to the official pre-compiled and digitally signed binary distributed via the Microsoft Store.
+- For questions regarding licenses, attributions, or distribution compliance, contact: linceu_lighthouse@outlook.com.

@@ -1,0 +1,75 @@
+Política de Privacidade do ACL Auditor
+Última atualização: 6 de novembro de 2026
+Versão: 2026.11.6.0
+
+A sua privacidade e a segurança das suas informações corporativas são pilares fundamentais deste projeto. Esta Política de Privacidade explica com clareza quais informações o ACL Auditor ("Software") processa e, principalmente, como essas informações permanecem sob seu controle exclusivo e irrestrito.
+
+Ao utilizar o ACL Auditor, você concorda com as práticas de privacidade transparentes descritas neste documento.
+
+1. Princípio Fundamental: Arquitetura Local-First e Privacidade Absoluta
+
+O ACL Auditor foi concebido desde a sua primeira linha de código sob o princípio de Privacidade Local e Segurança por Design (Security by Design). Todas as análises, varreduras de permissões, mapeamentos de herança e cálculos de direitos de acesso efetivo ocorrem de maneira 100% offline e são executados unicamente na memória e no processador do seu computador local. Nenhuma informação é coletada, enviada ou sincronizada com servidores remotos, nuvem ou serviços de terceiros.
+
+2. Informações Processadas pelo Software
+
+Para desempenhar suas finalidades de auditoria e segurança, o Software acessa e analisa as seguintes categorias de metadados:
+
+ - Metadados de Arquivos e Permissões NTFS: O Software inspeciona descritores de segurança dos arquivos e diretórios que você decide auditar. Isso compreende caminhos de sistema, nomes de arquivos e pastas, atributos, datas (criação, modificação, último acesso), Listas de Controle de Acesso Discricionário (DACL), Listas de Controle de Acesso de Sistema (SACL), Entradas de Controle de Acesso (ACE) e Identificadores de Segurança (SIDs). O Software NÃO inspeciona, não indexa e não lê o conteúdo interno dos seus documentos ou arquivos auditados.
+ - Informações de Contas e Grupos de Usuários: Para elucidar quem possui acesso a determinados recursos, o Software resolve SIDs locais e de domínio (Active Directory) para nomes de contas e grupos, bem como mapeia a hierarquia de grupos aninhados por meio das APIs nativas do subsistema de segurança do Windows NT.
+ - Configurações de Serviços do Windows (SCM) e Compartilhamentos SMB: O Software enumera permissões de serviços locais e compartilhamentos de rede ativos na máquina auditada para identificar caminhos desprotegidos ou divergências entre permissões de compartilhamento e permissões NTFS físicas.
+ - Informações Básicas do Sistema Operacional: Apenas para fins de apresentação correta da interface gráfica e renderização adequada (DWM Mica, Dark Mode, resolução de tela e idioma selecionado).
+
+3. Finalidade do Tratamento e Base Legal (LGPD — Lei nº 13.709/2018)
+
+As informações processadas pelo ACL Auditor são empregadas exclusivamente para:
+
+ - Fornecer a funcionalidade principal de mapeamento visual e cálculo da cadeia causal de herança de permissões NTFS.
+ - Identificar vulnerabilidades locais de segurança (diretórios graváveis por usuários comuns, riscos de DLL Hijacking e SIDs órfãos).
+ - Gerar comparações temporais (Diff) entre snapshots de segurança para detecção de alterações indevidas ou escalada de privilégios.
+ - Gerar relatórios técnicos e executivos nos formatos selecionados deliberadamente pelo usuário (PDF, HTML, CSV, JSON) e scripts de remediação auditáveis (PowerShell e icacls).
+
+Base Legal: O processamento ocorre com amparo no legítimo interesse do usuário na proteção e governança de seus sistemas (Art. 7º, IX da LGPD) e no cumprimento do contrato de licenciamento do software (Art. 7º, V da LGPD).
+
+4. Armazenamento, Integridade Criptográfica e Segurança dos Dados
+
+ - Armazenamento Local: Todas as informações persistidas pelo Software (como snapshots de segurança, preferências e histórico) são gravadas estritamente em um banco de dados SQLite local no perfil do usuário:
+   %LOCALAPPDATA%\ACLAuditor
+ - Integridade Criptográfica: O ACL Auditor utiliza a biblioteca nativa Windows CNG (BCrypt) para calcular hashes SHA-256 de integridade para snapshots e evidências de auditoria. Esses hashes são gerados e armazenados exclusivamente de forma local.
+ - Segurança Operacional: Como o aplicativo não possui módulos de comunicação em rede nem abre portas de escuta, a segurança dos dados auditados repousa sob as próprias barreiras de segurança física e lógica do seu computador e da sua rede local.
+ - Compartilhamento com Terceiros: O Software NÃO coleta, NÃO compartilha, NÃO comercializa e NÃO transfere qualquer dado com o desenvolvedor, com a Microsoft ou com terceiros. Qualquer compartilhamento (como envio de relatórios gerados a clientes ou auditores) é um ato executado única e exclusivamente por você.
+
+5. Seus Direitos e Controle Total (Art. 18 da LGPD / GDPR)
+
+Você detém o controle total sobre seus dados. A qualquer momento, você pode:
+
+ - Selecionar exatamente quais unidades, pastas ou serviços auditar;
+ - Limpar o histórico de auditoria ou excluir snapshots diretamente pela interface do aplicativo;
+ - Localizar e excluir fisicamente a pasta de dados locais (%LOCALAPPDATA%\ACLAuditor);
+ - Exportar relatórios nos formatos abertos de sua preferência;
+ - Desinstalar o Software a qualquer momento por meio do Gerenciador de Aplicativos do Windows, o que removerá todos os componentes binários instalados.
+
+6. Ausência de Telemetria e Zero Analytics
+
+O ACL Auditor opera sob a premissa de Zero Telemetria. O Software não contém rotinas de analytics, não monitora hábitos de navegação ou tempo de uso, não possui rastreadores publicitários e não realiza transmissões automatizadas de falhas (crash reports) para a internet. Eventuais arquivos de log gerados pelo aplicativo são estritamente locais e mantidos na pasta de dados do usuário para fins de depuração pessoal.
+
+7. Modo Somente Leitura por Padrão
+
+O ACL Auditor atua por padrão como uma ferramenta estritamente analítica e não destrutiva. O Software nunca altera permissões de segurança ou arquivos de sistema de maneira automática ou oculta. Quaisquer ações de remediação são sintetizadas na forma de scripts em texto legível para conferência humana prévia pelo administrador antes de eventual execução.
+
+8. Privacidade de Menores de Idade
+
+O ACL Auditor é uma ferramenta técnica de governança e infraestrutura de TI voltada a profissionais e organizações. O aplicativo não foi desenvolvido para crianças menores de 13 anos e não processa intencionalmente informações de menores.
+
+9. Conformidade com as Políticas da Microsoft Store
+
+Esta Política de Privacidade cumpre integralmente os requisitos estabelecidos nas Diretrizes de Desenvolvedor da Microsoft Store (Microsoft Store App Developer Agreement — ADA e Microsoft Store Policies, Seção 10.5).
+
+10. Atualizações desta Política e Canal de Contato
+
+Esta Política de Privacidade poderá ser atualizada periodicamente para refletir novas funcionalidades do Software. Qualquer alteração relevante será indicada pela data de atualização no início deste documento e refletida na aba "Sobre" dentro do próprio aplicativo.
+
+Em caso de dúvidas, solicitações ou considerações sobre esta Política de Privacidade ou sobre as práticas de proteção de dados do aplicativo, entre em contato com o desenvolvedor:
+
+Fernando Nillsson Cidade
+E-mail: linceu_lighthouse@outlook.com
+Site / Repositório: https://github.com/fernandoncidade

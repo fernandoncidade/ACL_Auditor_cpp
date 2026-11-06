@@ -1,0 +1,45 @@
+History, Rationale, and Development Motivation — ACL Auditor
+
+1. Conceptual and Symbolic Vision: The Memory and Insight of Munin
+
+The ACL Auditor project carries at its core the heritage of an ancestral symbolic figure: Munin, the legendary Norse mythological raven who flew across the world, personifying "Memory" and the keen discernment of unfolding reality. While his counterpart Hugin embodied transient thought, Munin was entrusted with retaining the structured truth of facts, illuminating hidden connections and subtle details.
+
+Within the corporate Microsoft Windows ecosystem, the NTFS filesystem functions through an intricate tapestry of security descriptors, Access Control Lists (DACLs/SACLs), permission bitmasks, propagated inheritance rules, and digital security identifiers (SIDs). Although robust, this structure inevitably turns opaque over time: conflicting rules, multi-tiered inheritance origins, and deeply nested groups forge a web virtually impenetrable to the naked human eye.
+
+ACL Auditor assumes the mantle of Munin across digital infrastructures: it acts as the analytical guardian that inspects the filesystem, untangles hidden permission pathways, and answers with irrefutable mathematical precision:
+"Who truly has access to this resource, through which specific inheritance paths, and under what causal justifications?"
+
+
+2. Origin and Motivation of the Project
+
+ACL Auditor was conceived to address a critical operational void in systems administration and information security (SecOps/Blue Team). Historically, security professionals and auditors faced two suboptimal alternatives:
+
+On one hand, revered command-line utilities (such as the venerable AccessChk from the Sysinternals suite): undeniably precise, yet constrained by dense console text output that makes visualizing genealogical inheritance trees difficult, fails to correlate Windows services and network shares into a unified view, and provides no capability to export executive reports for leadership or client presentations.
+
+On the other hand, built-in operating system graphical dialogs (such as the "Advanced Security Settings" tab in Windows Explorer): designed strictly for piecemeal inspections, they demand dozens of manual clicks per target, do not visually trace causal nested group trees, lack recursive scans for latent vulnerability vectors, and offer no mechanism for temporal comparison of permission drift over time.
+
+There was a compelling need for a modern, visual, deterministic, high-performance platform capable of translating raw NT DACL binary logic into actionable intelligence and professional executive-grade reports.
+
+
+3. Technological Evolution: From Concept to Native C++20 / Qt 6.11.1 Engine
+
+Auditing deep directory hierarchies in enterprise environments frequently encompasses hundreds of thousands of filesystem nodes and intensive calls to security descriptors. To deliver instantaneous response times without compromising UI responsiveness, ACL Auditor was architected from the ground up as a native desktop application in modern C++20 compiled for the x64 architecture.
+
+The engine directly orchestrates the native security subsystem APIs of Windows NT:
+- advapi32.lib and authz.lib: for surgical extraction of DACLs/SACLs and in-memory effective access evaluations;
+- netapi32.lib: for accurate enumeration of SMB network shares (NetShareEnum level 502);
+- bcrypt.lib (CNG): for SHA-256 evidence integrity hashing across all captured snapshots;
+- dwmapi.lib: for seamless integration with Windows 11 desktop styling (DWM Mica effects and dynamic dark/light mode synchronization);
+- Qt 6.11.1 Widgets: delivering responsive user interfaces, real-time instant search, and fluid hierarchical navigation.
+
+
+4. Commitment to Sovereign Privacy (Local-First)
+
+In enterprise environments where filesystem permissions safeguard trade secrets, intellectual property, and sensitive personal information, transmitting security metadata to cloud servers constitutes an unacceptable operational risk.
+
+Accordingly, ACL Auditor adheres to an unyielding ethical standard:
+* 100% Offline and Local: No data regarding files, permissions, user identities, SIDs, or servers ever leaves the audited machine.
+* Zero Telemetry and Zero Cloud Dependencies: No analytics trackers, no usage telemetry, and no mandatory cloud accounts.
+* Deterministic Intelligence without External AI: All effective access calculations and risk detections derive from deterministic graph algorithms and formal logic, ensuring absolute predictability, repeatability, and full compliance with GDPR, LGPD, and global data protection frameworks.
+
+ACL Auditor is the synthesis of native systems engineering and the analytical clarity necessary to protect, govern, and audit corporate digital assets.
