@@ -1,0 +1,29 @@
+# Diretórios de build e artefatos de compilação
+/build/
+/build
+/.vscode/
+/.vscode
+/cmake/
+/cmake
+/library/
+/library
+
+CMakePresets.json
+rascunho.cpp
+/CMakePresets.json
+/rascunho.cpp
+
+/mocks/INSTRUCOES_find_VersionEditor.txt
+
+# Saídas de instaladores
+InnoSetupOutput/
+Output/
+
+# Configurações locais de IDEs e editores
+.vs/
+*.user
+
+# Arquivos temporários e backups locais
+*.bak
+*.swp
+*~
